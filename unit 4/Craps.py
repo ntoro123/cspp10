@@ -1,4 +1,6 @@
 import random
+print("Welcome to the game of Craps!")
+print("--------------------------")
 # function name: roll2dice
 #   purpose: genarate a random dice rolls and
 #   prints it out, and return the sum
@@ -11,13 +13,12 @@ def roll2dice():
     print("Rolled 2 dice: {} {}".format(dice1,dice2))
     return dice_sum
 
-#funtion name: rules
-#   purpose: tells the rules of the game to the player
+#funtion name: earning
+#   purpose: tells the player if they lost or not
 #   arguments: none
 #   returns: none
-def rules():
-    print
 
+    
 # function name: money_start
 #   purpose: Tells the player what they start with
 #   arguments: Amount of money you start with
@@ -25,14 +26,6 @@ def rules():
 def money_start():
     print ("You have $100")
     return 100
-    
-# function name: house_start
-#   purpose: Tells the player what the house start with
-#   arguments: Amount of money house start with
-#   returns money
-def house_start():
-    print ("house have $1000")
-    return 1000
     
 #function name: Bets
 #   purpose: Asked the player to input the amount of bets
@@ -44,8 +37,8 @@ def bets():
     return bets
 
 #function name:
-def part_one(dice_roll):
-    roll = dice_roll()
+def part_one(roll2dice):
+    roll = roll2dice()
     if (roll == 2 or roll == 3 or roll == 12):
         return ("lose")
     elif (roll == 7 or roll == 11):
@@ -55,18 +48,42 @@ def part_one(dice_roll):
 # print
 # return
 
-def game_thing_point(dice_roll, part_one):
+def game_thing_point(roll2dice, part_one):
     new_roll = 0
-    point_roll = dice_roll()
-    verify = part_one(dice_roll)
+    point_roll = roll2dice()
+    verify = part_one(roll2dice)
     while (verify == "point") and (point_roll != new_roll or new_roll != 7):
-        dice_roll()
-        new_roll = dice_roll
+        roll2dice()
+        new_roll = roll2dice
         print ("Your roll was {} it rolled {} ".format(point_roll,new_roll))
 
 def craps():
     print("You are going to start with {} dollars".format(money_start()))
+    int(input("how much would you like to bet: "))
+    roll = roll2dice()
+    if (roll == 2 or roll == 3 or roll == 12):
+        print("You lost")
+        check = 0 #lose
+    elif (roll == 7 or roll == 11):
+        print("You Win")
+        check = 1 #win
+    else:
+        check = 2 #point
+        print("You didn't land the things ... POINT ROUND")
+    new_roll = 0
+    point_roll = roll
+    while (check == 2) and (point_roll != new_roll and new_roll != 7):
+        new_roll = roll2dice()
+        print ("Your roll was {} it rolled {} ".format(point_roll,new_roll))
+        if point_roll == new_roll:
+            print("You win your first and Second number matchs")
+        elif new_roll == 7:
+            print ("You lost you rolled 7")
+        else:
+            print("It's a draw let's keep going until you ether win or lose")
+            input("Press Enter to continue...")
     
+        
 craps()
     
     
@@ -74,4 +91,4 @@ craps()
 
 #   If the player rolls a 2, 3, or 12 in this phase, they lose their bet, and the round ends.
 # If the player rolls a 7 or 11 in this phase, they win their bet, and the round ends.
-# If the player rolls any other number (a 4,5,6,8,9,10), then they continue to Phase 3, with their roll becoming their “point number“
+# If the player rolls any other number (a 4,5,6,8,9,10), then they continue to Phase 3, with their roll becoming their 
