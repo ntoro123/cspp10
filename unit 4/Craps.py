@@ -33,10 +33,11 @@ def money_start():
 #   arguments: Bet placed
 #   returns: Bets
 def bets():
-    bets = input("Put in your bets: ")
+    bets = int(input("how much would you like to bet: "))
     return bets
 
-#function name:
+#function name: Part One
+#   
 def part_one(roll2dice):
     roll = roll2dice()
     if (roll == 2 or roll == 3 or roll == 12):
@@ -47,6 +48,13 @@ def part_one(roll2dice):
         return ("point") 
 # print
 # return
+
+def bets_cal():
+    bank_b = money_start()
+    money = bets()
+    while ((money != int(money)) or (money > bank_b) or (money < 1)):
+        print("It has to be a whole number, not a negtive, and you need to have enogh money")
+        money = bets()
 
 def game_thing_point(roll2dice, part_one):
     new_roll = 0
@@ -60,6 +68,11 @@ def game_thing_point(roll2dice, part_one):
 def craps():
     print("You are going to start with {} dollars".format(money_start()))
     int(input("how much would you like to bet: "))
+    bank_b = money_start()
+    money = bets()
+    while ((money != int(money)) or (money > bank_b) or (money < 1)):
+        print("It has to be a whole number, not a negtive, and you need to have enogh money")
+        money = bets()
     roll = roll2dice()
     if (roll == 2 or roll == 3 or roll == 12):
         print("You lost")
@@ -70,6 +83,7 @@ def craps():
     else:
         check = 2 #point
         print("You didn't land the things ... POINT ROUND")
+            
     new_roll = 0
     point_roll = roll
     while (check == 2) and (point_roll != new_roll and new_roll != 7):
