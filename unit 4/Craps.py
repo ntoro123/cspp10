@@ -13,12 +13,6 @@ def roll2dice():
     print("Rolled 2 dice: {} {}".format(dice1,dice2))
     return dice_sum
 
-#funtion name: earning
-#   purpose: tells the player if they lost or not
-#   arguments: none
-#   returns: none
-
-    
 # function name: money_start
 #   purpose: Tells the player what they start with
 #   arguments: Amount of money you start with
@@ -72,7 +66,7 @@ def craps():
     money = bets()
     while ((money != int(money)) or (money > bank_b) or (money < 1)):
         print("It has to be a whole number, not a negtive, and you need to have enogh money")
-        money = bets()
+        
     roll = roll2dice()
     if (roll == 2 or roll == 3 or roll == 12):
         print("You lost")
