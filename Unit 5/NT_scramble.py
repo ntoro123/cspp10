@@ -3,7 +3,20 @@
 #have every word scrambled in some type of way. In a way I would start by making a shuffle function then continue by breaking it down into working
 #I will import random in the beginning and then use it to genarate a random number I then 
 import random
+word_1 = 0
+word = "Phrase"
 def scramble_word():
-    enter = input("Enter the word you want to jumble")
-    list = 1
+    list_1=[]
     
+    if len(word) == 1:
+        return (word)
+    if len(word) == 2:
+        return (word)
+    if len(word) == 3:
+        return (word)
+    else:
+        word_1 = 1
+        
+    if word_1 == 1:
+        half_word = word[1:-1]
+        print (half_)
