@@ -19,4 +19,4 @@ def scramble_word():
         
     if word_1 == 1:
         half_word = word[1:-1]
-        print (half_)
+        print (half_word)
